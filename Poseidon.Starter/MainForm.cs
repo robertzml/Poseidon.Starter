@@ -15,6 +15,8 @@ namespace Poseidon.Starter
     using Poseidon.Caller.Facade;
     using Poseidon.Common;
     using Poseidon.Winform.Base;
+    using Poseidon.Core.DL;
+    using Poseidon.Core.Utility;
 
     /// <summary>
     /// 主窗体界面
@@ -74,6 +76,43 @@ namespace Poseidon.Starter
         }
 
         /// <summary>
+        /// 载入菜单
+        /// </summary>
+        private void LoadMenus()
+        {
+            var menus = CallerFactory<IMenuService>.Instance.FindAll();
+
+            var pages = menus.Where(r => r.Type == (int)MenuType.Page).OrderBy(r => r.Sort);
+
+            foreach(var page in pages)
+            {
+                RibbonPage rp = new RibbonPage();
+                rp.Text = page.Name;
+                this.ribbonControl.Pages.Insert(0, rp);
+
+                var groups = menus.Where(r => r.ParentId == page.Id && r.Type == (int)MenuType.Group).OrderBy(r => r.Sort);
+                foreach(var group in groups)
+                {
+                    RibbonPageGroup rpg = new RibbonPageGroup();
+                    rpg.Text = group.Name;
+                    rp.Groups.Add(rpg);
+
+                    var buttons = menus.Where(r => r.ParentId == group.Id && r.Type == (int)MenuType.Button).OrderBy(r => r.Sort);
+                    foreach(var button in buttons)
+                    {
+                        BarButtonItem bbi = new BarButtonItem();
+                        bbi.Caption = button.Name;
+                        bbi.Tag = button.AssemblyName + "," + button.TypeName;
+                        rpg.ItemLinks.Add(bbi);
+
+                        bbi.ItemClick += menuItem_Click;
+                    }
+                }
+
+            }
+        }
+
+        /// <summary>
         /// 设置状态栏显示
         /// </summary>
         private void SetStatusBar()
@@ -92,7 +131,8 @@ namespace Poseidon.Starter
         {
             this.Text = AppConfig.ApplicationName;
 
-            CheckPrivilege();
+            //CheckPrivilege();
+            LoadMenus();
             SetStatusBar();
 
 #if DEBUG
@@ -100,6 +140,46 @@ namespace Poseidon.Starter
 #else
             this.bbiTest.Visibility = BarItemVisibility.Never;
 #endif
+        }
+
+   
+        /// <summary>
+        /// 菜单点击
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void menuItem_Click(object sender, ItemClickEventArgs e)
+        {
+            var item = e.Item as BarButtonItem;
+
+            var s = item.Tag.ToString().Split(',');
+            string assemblyName = s[0];
+            string typeName = s[1];
+
+            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
+        }
+
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiChangePassword_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ChildFormManage.ShowDialogForm(typeof(FrmChangePassword));
+        }
+
+        /// <summary>
+        /// 退出系统
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiExit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (MessageUtil.ConfirmYesNo("是否退出系统") == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         #region Ribbon Event
@@ -118,232 +198,12 @@ namespace Poseidon.Starter
             ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
         }
 
-        /// <summary>
-        /// 指标制定
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiTargetMake_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Energy.ClientDx";
-            string typeName = "Poseidon.Energy.ClientDx.FrmTargetMake";
-
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
-
-        /// <summary>
-        /// 人数总览
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiPopulationOv_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Energy.ClientDx";
-            string typeName = "Poseidon.Energy.ClientDx.FrmPopulationOverview";
-
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
-
-        /// <summary>
-        /// 人数管理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiPopulationMan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Energy.ClientDx";
-            string typeName = "Poseidon.Energy.ClientDx.FrmPopulationManage";
-
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
-
-        /// <summary>
-        /// 经费总览
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiFundOv_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Energy.ClientDx";
-            string typeName = "Poseidon.Energy.ClientDx.FrmFundOverview";
-
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
-
-        /// <summary>
-        /// 经费管理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiFundMan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Energy.ClientDx";
-            string typeName = "Poseidon.Energy.ClientDx.FrmFundManage";
-
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
-
-        /// <summary>
-        /// 计量总览
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiMeasureOv_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Energy.ClientDx";
-            string typeName = "Poseidon.Energy.ClientDx.FrmMeasureOverview";
-
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
-
-        /// <summary>
-        /// 计量管理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiMeasureMan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Energy.ClientDx";
-            string typeName = "Poseidon.Energy.ClientDx.FrmMeasureManage";
-
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
-
-        /// <summary>
-        /// 能源结算总览
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiSettlementOv_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Energy.ClientDx";
-            string typeName = "Poseidon.Energy.ClientDx.FrmSettlementOverview";
-
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
-
-        /// <summary>
-        /// 能源结算管理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiSettlementMan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Energy.ClientDx";
-            string typeName = "Poseidon.Energy.ClientDx.FrmSettlementManage";
-
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
-
-        /// <summary>
-        /// 部门总览
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiDepartmentOv_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Energy.ClientDx";
-            string typeName = "Poseidon.Energy.ClientDx.FrmDepartmentOverview";
-
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
+      
         #endregion //Energy
 
-        #region Expense
-        /// <summary>
-        /// 支出总览
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiExpenseOv_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Expense.ClientDx";
-            string typeName = "Poseidon.Expense.ClientDx.FrmExpenseOverview";
+     
 
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
-
-        /// <summary>
-        /// 支出单据
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiExpenseReceipt_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Expense.ClientDx";
-            string typeName = "Poseidon.Expense.ClientDx.FrmExpenseReceipt";
-
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
-
-        /// <summary>
-        /// 支出账户
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiExpenseAccount_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Expense.ClientDx";
-            string typeName = "Poseidon.Expense.ClientDx.FrmExpenseAccount";
-
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
-        #endregion //Expense
-
-        #region Recovery
-        /// <summary>
-        /// 回收总览
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiRecoveryOv_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Recovery.ClientDx";
-            string typeName = "Poseidon.Recovery.ClientDx.FrmRecoveryOverview";
-
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
-
-        /// <summary>
-        /// 回收单据
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiRecoveryReceipt_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Recovery.ClientDx";
-            string typeName = "Poseidon.Recovery.ClientDx.FrmRecoveryReceipt";
-
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
-
-        /// <summary>
-        /// 回收账户管理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiRecoveryAccount_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Recovery.ClientDx";
-            string typeName = "Poseidon.Recovery.ClientDx.FrmAccountManage";
-
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
-
-        /// <summary>
-        /// 计费建筑管理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiChargeBuildingMan_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Recovery.ClientDx";
-            string typeName = "Poseidon.Recovery.ClientDx.FrmChargeBuildingManage";
-
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
-        #endregion //Recovery
-
+      
         #region Model
         /// <summary>
         /// 模型类型管理
@@ -394,10 +254,10 @@ namespace Poseidon.Starter
         /// <param name="e"></param>
         private void bbiCacheManage_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string assemblyName = "Poseidon.Energy.ClientDx";
-            string typeName = "Poseidon.Energy.ClientDx.FrmDepartmentOverview";
+            //string assemblyName = "Poseidon.Energy.ClientDx";
+            //string typeName = "Poseidon.Energy.ClientDx.FrmDepartmentOverview";
 
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
+            //ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
 
             //ChildFormManage.LoadMdiForm(this, typeof(FrmCacheManage));
         }
@@ -412,18 +272,7 @@ namespace Poseidon.Starter
             //ChildFormManage.LoadMdiForm(this, typeof(FrmAttachmentManage));
         }
 
-        /// <summary>
-        /// 退出系统
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiExit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            if (MessageUtil.ConfirmYesNo("是否退出系统") == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
+  
 
         /// <summary>
         /// 用户管理
@@ -465,15 +314,7 @@ namespace Poseidon.Starter
             //ChildFormManage.LoadMdiForm(this, typeof(FrmPrivilegeAssign));
         }
 
-        /// <summary>
-        /// 修改密码
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiChangePassword_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //ChildFormManage.ShowDialogForm(typeof(FrmChangePassword));
-        }
+    
 
         /// <summary>
         /// 测试窗体

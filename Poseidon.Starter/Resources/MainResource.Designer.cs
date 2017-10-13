@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Poseidon.Starter.Properties {
+namespace Poseidon.Starter.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Poseidon.Starter.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class MainResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal MainResource() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Poseidon.Starter.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Poseidon.Starter.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Poseidon.Starter.Resources.MainResource", typeof(MainResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,22 +61,11 @@ namespace Poseidon.Starter.Properties {
         }
         
         /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        ///   查找类似 房产处管理系统 的本地化字符串。
         /// </summary>
-        internal static System.Drawing.Bitmap LineStyle_16x16 {
+        internal static string Caption {
             get {
-                object obj = ResourceManager.GetObject("LineStyle_16x16", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
-        /// </summary>
-        internal static System.Drawing.Bitmap LineStyle_32x32 {
-            get {
-                object obj = ResourceManager.GetObject("LineStyle_32x32", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("Caption", resourceCulture);
             }
         }
     }
