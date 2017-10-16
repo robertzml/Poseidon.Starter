@@ -6,7 +6,9 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Resources;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,7 +20,7 @@ namespace Poseidon.Starter
     using Poseidon.Core.DL;
     using Poseidon.Common;
     using Poseidon.Winform.Base;
-    using System.Resources;
+
 
     /// <summary>
     /// 资源管理窗体
@@ -45,12 +47,11 @@ namespace Poseidon.Starter
             Assembly assembly = Assembly.GetExecutingAssembly();
             //Stream manifestResourceStream = assembly.GetManifestResourceStream("");
 
-            ResourceManager rm = new ResourceManager("Poseidon.Starter.Resources.MainResource", assembly);
+            ResourceManager rm = new ResourceManager("Poseidon.Starter.Properties.Resources", assembly);
                         
             var caption = rm.GetString("Caption");
 
-
-            ResourceWriter write = new ResourceWriter("");
+            var rs = rm.GetResourceSet(Thread.CurrentThread.CurrentCulture, true, false);
         }
         #endregion //Function
 

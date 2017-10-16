@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -82,6 +84,9 @@ namespace Poseidon.Starter
         {
             var menus = CallerFactory<IMenuService>.Instance.FindAll();
 
+            Assembly assembly = Assembly.GetExecutingAssembly();           
+            ResourceManager rm = new ResourceManager("Poseidon.Starter.Properties.Resources", assembly);
+
             var pages = menus.Where(r => r.Type == (int)MenuType.Page).OrderBy(r => r.Sort);
 
             foreach(var page in pages)
@@ -103,6 +108,21 @@ namespace Poseidon.Starter
                         BarButtonItem bbi = new BarButtonItem();
                         bbi.Caption = button.Name;
                         bbi.Tag = button.AssemblyName + "," + button.TypeName;
+
+                        // 设置图标
+                        if (!string.IsNullOrEmpty(button.Glyph))
+                        {
+                            var glyph = rm.GetObject(button.Glyph);
+                            if (glyph != null)
+                                bbi.Glyph = (System.Drawing.Image)glyph;
+                        }
+                        if (!string.IsNullOrEmpty(button.LargeGlyph))
+                        {
+                            var large = rm.GetObject(button.LargeGlyph);
+                            if (large != null)
+                                bbi.LargeGlyph = (System.Drawing.Image)large;
+                        }
+
                         rpg.ItemLinks.Add(bbi);
 
                         bbi.ItemClick += menuItem_Click;

@@ -63,9 +63,9 @@ namespace Poseidon.Starter.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap LineStyle_16x16 {
+        internal static System.Drawing.Bitmap AssignTo_16x16 {
             get {
-                object obj = ResourceManager.GetObject("LineStyle_16x16", resourceCulture);
+                object obj = ResourceManager.GetObject("AssignTo_16x16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,129 @@ namespace Poseidon.Starter.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap LineStyle_32x32 {
+        internal static System.Drawing.Bitmap AssignTo_32x32 {
             get {
-                object obj = ResourceManager.GetObject("LineStyle_32x32", resourceCulture);
+                object obj = ResourceManager.GetObject("AssignTo_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap BOPermission_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("BOPermission_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap BOPermission_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("BOPermission_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap BringToFrontOfText_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("BringToFrontOfText_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap BringToFrontOfText_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("BringToFrontOfText_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap GanttView_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("GanttView_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap GanttView_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("GanttView_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Lookup_Reference_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Lookup_Reference_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Lookup_Reference_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Lookup_Reference_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Role_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Role_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Role_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Role_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap UserGroup_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("UserGroup_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap UserGroup_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("UserGroup_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

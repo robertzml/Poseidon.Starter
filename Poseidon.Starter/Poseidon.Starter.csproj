@@ -90,10 +90,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Resources\MainResource.Designer.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MainResource.resx</DependentUpon>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="UI\FrmResourceManage.cs">
       <SubType>Form</SubType>
@@ -125,10 +125,6 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\MainResource.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>MainResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmChangePassword.resx">
       <DependentUpon>FrmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,14 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -172,9 +163,21 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\LineStyle_16x16.png" />
-    <None Include="Resources\LineStyle_32x32.png" />
+    <None Include="Resources\Role_32x32.png" />
+    <None Include="Resources\Role_16x16.png" />
+    <None Include="Resources\AssignTo_16x16.png" />
+    <None Include="Resources\AssignTo_32x32.png" />
+    <None Include="Resources\BOPermission_16x16.png" />
+    <None Include="Resources\BOPermission_32x32.png" />
+    <None Include="Resources\GanttView_16x16.png" />
+    <None Include="Resources\GanttView_32x32.png" />
+    <None Include="Resources\BringToFrontOfText_16x16.png" />
+    <None Include="Resources\BringToFrontOfText_32x32.png" />
+    <None Include="Resources\Lookup&amp;Reference_16x16.png" />
+    <None Include="Resources\Lookup&amp;Reference_32x32.png" />
     <Content Include="Resources\poseidon.ico" />
+    <None Include="Resources\UserGroup_32x32.png" />
+    <None Include="Resources\UserGroup_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
