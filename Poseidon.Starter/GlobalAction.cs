@@ -35,38 +35,56 @@ namespace Poseidon.Starter
         /// </summary>
         public static void Initialize()
         {
-            // 设置连接字符串
-            string source = AppConfig.GetAppSetting("ConnectionSource");
-            if (string.IsNullOrEmpty(source))
-                throw new PoseidonException(ErrorCode.DatabaseConnectionNotFound);
-
-            string connection = "";
-            if (source == "dbconfig")
+            try
             {
-                string name = AppConfig.GetAppSetting("DbConnection");
-                connection = ConfigUtility.GetConnectionString(name);
+                // 设置连接字符串
+                string source = AppConfig.GetAppSetting("ConnectionSource");
+                if (string.IsNullOrEmpty(source))
+                {
+                    Logger.Instance.Error("连接源未确定");
+                    throw new PoseidonException(ErrorCode.DatabaseConnectionNotFound);
+                }
+
+                string connection = "";
+                if (source == "dbconfig")
+                {
+                    string name = AppConfig.GetAppSetting("DbConnection");
+                    connection = ConfigUtility.GetConnectionString(name);
+                }
+                else if (source == "appconfig")
+                {
+                    connection = AppConfig.GetConnectionString();
+                }
+
+                if (string.IsNullOrEmpty(connection))
+                {
+                    Logger.Instance.Error("连接字符串未找到");
+                    throw new PoseidonException(ErrorCode.DatabaseConnectionNotFound);
+                }
+
+                Cache.Instance.Add("ConnectionString", connection);
+                Logger.Instance.Debug("连接字符串已设置");
+
+                // 设置数据库类型
+                string dalPrefix = AppConfig.GetAppSetting("DALPrefix");
+                Cache.Instance.Add("DALPrefix", dalPrefix);
+                Logger.Instance.Debug("数据库类型已设置");
+
+                // 设置服务访问类型
+                string callerType = AppConfig.GetAppSetting("CallerType");
+                Cache.Instance.Add("CallerType", callerType);
+                Logger.Instance.Debug("服务访问类型已设置");
+
+                // 设置远程API地址
+                string apiHost = AppConfig.GetAppSetting("ApiHost");
+                Cache.Instance.Add("ApiHost", apiHost);
+                Logger.Instance.Debug("API主机已设置");
             }
-            else if (source == "appconfig")
+            catch(Exception e)
             {
-                connection = AppConfig.GetConnectionString();
+                Logger.Instance.Exception("初始化失败", e);
+                throw new PoseidonException(ErrorCode.Error);
             }
-
-            if (string.IsNullOrEmpty(connection))
-                throw new PoseidonException(ErrorCode.DatabaseConnectionNotFound);
-
-            Cache.Instance.Add("ConnectionString", connection);
-
-            // 设置数据库类型
-            string dalPrefix = AppConfig.GetAppSetting("DALPrefix");
-            Cache.Instance.Add("DALPrefix", dalPrefix);
-
-            // 设置服务访问类型
-            string callerType = AppConfig.GetAppSetting("CallerType");
-            Cache.Instance.Add("CallerType", callerType);
-
-            // 设置远程API地址
-            string apiHost = AppConfig.GetAppSetting("ApiHost");
-            Cache.Instance.Add("ApiHost", apiHost);
         }
 
         /// <summary>

@@ -32,6 +32,7 @@ namespace Poseidon.Starter
             {
                 GlobalAction.CurrentUser = GlobalAction.ConvertToLoginUser(login.User);
                 Cache.Instance.Add("CurrentUser", GlobalAction.CurrentUser); //缓存用户信息
+                Logger.Instance.Debug("用户登录成功");
 
                 Application.Run(new MainForm());
             }
@@ -44,6 +45,8 @@ namespace Poseidon.Starter
         /// <param name="ex"></param>
         private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs ex)
         {
+            Logger.Instance.Exception("未处理异常", ex.Exception);
+
             string message = string.Format("{0}\r\n操作发生错误，您需要退出系统么？", ex.Exception.Message);
             if (MessageUtil.ConfirmYesNo(message) == DialogResult.Yes)
             {
