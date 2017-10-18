@@ -35,7 +35,6 @@
             this.barLoginUser = new DevExpress.XtraBars.BarStaticItem();
             this.bbiChangePassword = new DevExpress.XtraBars.BarButtonItem();
             this.bbiExit = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiTest = new DevExpress.XtraBars.BarButtonItem();
             this.rpBase = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgPersonnel = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgBase = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -53,8 +52,7 @@
             this.barChildList,
             this.barLoginUser,
             this.bbiChangePassword,
-            this.bbiExit,
-            this.bbiTest});
+            this.bbiExit});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.MaxItemId = 17;
             this.ribbonControl.Name = "ribbonControl";
@@ -101,16 +99,6 @@
             this.bbiExit.Name = "bbiExit";
             this.bbiExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiExit_ItemClick);
             // 
-            // bbiTest
-            // 
-            this.bbiTest.Caption = "测试";
-            this.bbiTest.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-            this.bbiTest.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiTest.Glyph")));
-            this.bbiTest.Id = 14;
-            this.bbiTest.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiTest.LargeGlyph")));
-            this.bbiTest.Name = "bbiTest";
-            this.bbiTest.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTest_ItemClick);
-            // 
             // rpBase
             // 
             this.rpBase.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -127,7 +115,6 @@
             // 
             // rpgBase
             // 
-            this.rpgBase.ItemLinks.Add(this.bbiTest);
             this.rpgBase.ItemLinks.Add(this.barChildList);
             this.rpgBase.ItemLinks.Add(this.bbiExit);
             this.rpgBase.Name = "rpgBase";
@@ -181,7 +168,6 @@
         private DevExpress.XtraBars.BarButtonItem bbiExit;
         private DevExpress.XtraBars.Ribbon.RibbonPage rpBase;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgBase;
-        private DevExpress.XtraBars.BarButtonItem bbiTest;
     }
 }
 

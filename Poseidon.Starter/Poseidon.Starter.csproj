@@ -84,12 +84,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -122,9 +116,6 @@
     <Compile Include="UI\FrmChangePassword.Designer.cs">
       <DependentUpon>FrmChangePassword.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmChangePassword.resx">
       <DependentUpon>FrmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +154,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\ShowAll_32x32.png" />
+    <None Include="Resources\ShowAll_16x16.png" />
+    <None Include="Resources\TopBottomRules_32x32.png" />
+    <None Include="Resources\TopBottomRules_16x16.png" />
+    <None Include="Resources\Top10Items_32x32.png" />
+    <None Include="Resources\Top10Items_16x16.png" />
     <None Include="Resources\Role_32x32.png" />
     <None Include="Resources\Role_16x16.png" />
     <None Include="Resources\AssignTo_16x16.png" />
@@ -175,6 +172,40 @@
     <None Include="Resources\BringToFrontOfText_32x32.png" />
     <None Include="Resources\Lookup&amp;Reference_16x16.png" />
     <None Include="Resources\Lookup&amp;Reference_32x32.png" />
+    <None Include="Resources\InlineSizeLegend_16x16.png" />
+    <None Include="Resources\InlineSizeLegend_32x32.png" />
+    <None Include="Resources\GroupRows_16x16.png" />
+    <None Include="Resources\GroupRows_32x32.png" />
+    <None Include="Resources\CrossbandBox_16x16.png" />
+    <None Include="Resources\CrossbandBox_32x32.png" />
+    <None Include="Resources\DocumentMap_16x16.png" />
+    <None Include="Resources\DocumentMap_32x32.png" />
+    <None Include="Resources\ConditionalFormatting_16x16.png" />
+    <None Include="Resources\ConditionalFormatting_32x32.png" />
+    <None Include="Resources\CustomizeGrid_16x16.png" />
+    <None Include="Resources\CustomizeGrid_32x32.png" />
+    <None Include="Resources\DropAndHighLowLines_16x16.png" />
+    <None Include="Resources\DropAndHighLowLines_32x32.png" />
+    <None Include="Resources\BOSale_16x16.png" />
+    <None Include="Resources\BOSale_32x32.png" />
+    <None Include="Resources\Cube_16x16.png" />
+    <None Include="Resources\Cube_32x32.png" />
+    <None Include="Resources\Design_16x16.png" />
+    <None Include="Resources\Design_32x32.png" />
+    <None Include="Resources\BOPosition2_16x16.png" />
+    <None Include="Resources\BOPosition2_32x32.png" />
+    <None Include="Resources\Currency_16x16.png" />
+    <None Include="Resources\Currency_32x32.png" />
+    <None Include="Resources\CalculateSheet_16x16.png" />
+    <None Include="Resources\CalculateSheet_32x32.png" />
+    <None Include="Resources\Financial_16x16.png" />
+    <None Include="Resources\Financial_32x32.png" />
+    <None Include="Resources\GreaterThan_16x16.png" />
+    <None Include="Resources\GreaterThan_32x32.png" />
+    <None Include="Resources\FullStackedPyramid_16x16.png" />
+    <None Include="Resources\FullStackedPyramid_32x32.png" />
+    <None Include="Resources\CrossDataSourceFiltering _16x16.png" />
+    <None Include="Resources\CrossDataSourceFiltering_32x32.png" />
     <Content Include="Resources\poseidon.ico" />
     <None Include="Resources\UserGroup_32x32.png" />
     <None Include="Resources\UserGroup_16x16.png" />

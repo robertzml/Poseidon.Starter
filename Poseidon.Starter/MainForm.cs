@@ -82,12 +82,12 @@ namespace Poseidon.Starter
         /// </summary>
         private void LoadMenus()
         {
-            var menus = CallerFactory<IMenuService>.Instance.FindAll();
+            var menus = CallerFactory<IMenuService>.Instance.FindAll().Where(r => r.Visible == true);
 
             Assembly assembly = Assembly.GetExecutingAssembly();           
             ResourceManager rm = new ResourceManager("Poseidon.Starter.Properties.Resources", assembly);
 
-            var pages = menus.Where(r => r.Type == (int)MenuType.Page).OrderBy(r => r.Sort);
+            var pages = menus.Where(r => r.Type == (int)MenuType.Page).OrderByDescending(r => r.Sort);
 
             foreach(var page in pages)
             {
@@ -128,8 +128,9 @@ namespace Poseidon.Starter
                         bbi.ItemClick += menuItem_Click;
                     }
                 }
-
             }
+
+            this.ribbonControl.SelectedPage = this.ribbonControl.Pages[0];
         }
 
         /// <summary>
@@ -154,14 +155,7 @@ namespace Poseidon.Starter
             //CheckPrivilege();
             LoadMenus();
             SetStatusBar();
-
-#if DEBUG
-            this.bbiTest.Visibility = BarItemVisibility.Always;
-#else
-            this.bbiTest.Visibility = BarItemVisibility.Never;
-#endif
         }
-
    
         /// <summary>
         /// 菜单点击
@@ -201,154 +195,6 @@ namespace Poseidon.Starter
                 this.Close();
             }
         }
-
-        #region Ribbon Event
-
-        #region Energy
-        /// <summary>
-        /// 指标总览
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiTargetOverview_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string assemblyName = "Poseidon.Energy.ClientDx";
-            string typeName = "Poseidon.Energy.ClientDx.FrmTargetOverview";
-
-            ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-        }
-
-      
-        #endregion //Energy
-
-     
-
-      
-        #region Model
-        /// <summary>
-        /// 模型类型管理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiModelTypeMan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //ChildFormManage.LoadMdiForm(this, typeof(FrmModelTypeManage));
-        }
-
-        /// <summary>
-        /// 分组管理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiGroupMan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //ChildFormManage.LoadMdiForm(this, typeof(FrmGroupManage));
-        }
-
-        /// <summary>
-        /// 分组树查看
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiGroupTree_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //ChildFormManage.LoadMdiForm(this, typeof(FrmGroupTree));
-        }
-        #endregion //Model
-
-        #region System
-        /// <summary>
-        /// 字典总览
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiDictOv_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //ChildFormManage.LoadMdiForm(this, typeof(FrmDictOverview));
-        }
-
-        /// <summary>
-        /// 缓存管理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiCacheManage_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //string assemblyName = "Poseidon.Energy.ClientDx";
-            //string typeName = "Poseidon.Energy.ClientDx.FrmDepartmentOverview";
-
-            //ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
-
-            //ChildFormManage.LoadMdiForm(this, typeof(FrmCacheManage));
-        }
-
-        /// <summary>
-        /// 附件管理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiAttachmentMan_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //ChildFormManage.LoadMdiForm(this, typeof(FrmAttachmentManage));
-        }
-
-  
-
-        /// <summary>
-        /// 用户管理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiUserMan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //ChildFormManage.LoadMdiForm(this, typeof(FrmUserList));
-        }
-
-        /// <summary>
-        /// 角色管理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiRoleMan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //ChildFormManage.LoadMdiForm(this, typeof(FrmRoleManage));
-        }
-
-        /// <summary>
-        /// 权限管理
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiPrivilegeMan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //ChildFormManage.LoadMdiForm(this, typeof(FrmPrivilegeManage));
-        }
-
-        /// <summary>
-        /// 权限分配
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiPrivilegeAssign_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //ChildFormManage.LoadMdiForm(this, typeof(FrmPrivilegeAssign));
-        }
-
-    
-
-        /// <summary>
-        /// 测试窗体
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void bbiTest_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //ChildFormManage.ShowDialogForm(typeof(TestForm));
-        }
-        #endregion //System
-
-        #endregion //Ribbon Event
-
         #endregion //Event
     }
 }

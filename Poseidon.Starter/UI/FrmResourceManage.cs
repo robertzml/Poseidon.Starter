@@ -55,13 +55,11 @@ namespace Poseidon.Starter
         }
         #endregion //Function
 
+        #region Event
         private void btnLoadIcon_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dialog = new OpenFileDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                //dialog.FileName
-            }
+          
         }
+        #endregion //Event
     }
 }
