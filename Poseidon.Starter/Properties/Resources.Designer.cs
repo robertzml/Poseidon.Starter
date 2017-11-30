@@ -523,6 +523,26 @@ namespace Poseidon.Starter.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap SelectDataMember_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("SelectDataMember_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap SelectDataMember_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("SelectDataMember_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap ShowAll_16x16 {
             get {
                 object obj = ResourceManager.GetObject("ShowAll_16x16", resourceCulture);

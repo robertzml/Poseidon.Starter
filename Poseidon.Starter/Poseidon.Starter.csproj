@@ -154,6 +154,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\SelectDataMember_32x32.png" />
+    <None Include="Resources\SelectDataMember_16x16.png" />
     <None Include="Resources\ShowAll_32x32.png" />
     <None Include="Resources\ShowAll_16x16.png" />
     <None Include="Resources\TopBottomRules_32x32.png" />

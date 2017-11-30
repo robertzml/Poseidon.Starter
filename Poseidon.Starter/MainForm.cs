@@ -39,72 +39,45 @@ namespace Poseidon.Starter
 
         #region Function
         /// <summary>
-        /// 检查权限
-        /// </summary>
-        protected void CheckPrivilege()
-        {
-            if (GlobalAction.CurrentUser.IsRoot)
-                return;
-
-            var privileges = CallerFactory<IUserService>.Instance.GetPrivileges(GlobalAction.CurrentUser.Id);
-
-            foreach (RibbonPage page in this.ribbonControl.Pages)
-            {
-                if (page.Tag == null || privileges.Contains(page.Tag.ToString()))
-                {
-                    page.Visible = true;
-
-                    foreach (RibbonPageGroup group in page.Groups)
-                    {
-                        if (group.Tag == null || privileges.Contains(group.Tag.ToString()))
-                        {
-                            group.Visible = true;
-                        }
-                        else
-                            group.Visible = false;
-                    }
-                }
-                else
-                    page.Visible = false;
-            }
-
-            foreach (BarItem item in this.ribbonControl.Items)
-            {
-                if (item.Tag == null || privileges.Contains(item.Tag.ToString()))
-                    item.Visibility = BarItemVisibility.Always;
-                else
-                    item.Visibility = BarItemVisibility.Never;
-            }
-        }
-
-        /// <summary>
-        /// 载入菜单
+        /// 检查权限载入菜单
         /// </summary>
         private void LoadMenus()
         {
             var menus = CallerFactory<IMenuService>.Instance.FindAll().Where(r => r.Visible == true);
+            var privileges = CallerFactory<IUserService>.Instance.GetPrivileges(GlobalAction.CurrentUser.Id);
 
-            Assembly assembly = Assembly.GetExecutingAssembly();           
+            Assembly assembly = Assembly.GetExecutingAssembly();
             ResourceManager rm = new ResourceManager("Poseidon.Starter.Properties.Resources", assembly);
 
+            // 模块分页
             var pages = menus.Where(r => r.Type == (int)MenuType.Page).OrderByDescending(r => r.Sort);
-
-            foreach(var page in pages)
+            foreach (var page in pages)
             {
+                if (!GlobalAction.CurrentUser.IsRoot && !privileges.Contains(page.PrivilegeCode))
+                    continue;
+
                 RibbonPage rp = new RibbonPage();
                 rp.Text = page.Name;
                 this.ribbonControl.Pages.Insert(0, rp);
 
+                // 二级分组
                 var groups = menus.Where(r => r.ParentId == page.Id && r.Type == (int)MenuType.Group).OrderBy(r => r.Sort);
-                foreach(var group in groups)
+                foreach (var group in groups)
                 {
+                    if (!GlobalAction.CurrentUser.IsRoot && !privileges.Contains(group.PrivilegeCode))
+                        continue;
+
                     RibbonPageGroup rpg = new RibbonPageGroup();
                     rpg.Text = group.Name;
                     rp.Groups.Add(rpg);
 
+                    // 功能按钮
                     var buttons = menus.Where(r => r.ParentId == group.Id && r.Type == (int)MenuType.Button).OrderBy(r => r.Sort);
-                    foreach(var button in buttons)
+                    foreach (var button in buttons)
                     {
+                        if (!GlobalAction.CurrentUser.IsRoot && !privileges.Contains(button.PrivilegeCode))
+                            continue;
+
                         BarButtonItem bbi = new BarButtonItem();
                         bbi.Caption = button.Name;
                         bbi.Tag = button.AssemblyName + "," + button.TypeName;
@@ -152,11 +125,10 @@ namespace Poseidon.Starter
         {
             this.Text = AppConfig.ApplicationName;
 
-            //CheckPrivilege();
             LoadMenus();
             SetStatusBar();
         }
-   
+
         /// <summary>
         /// 菜单点击
         /// </summary>
