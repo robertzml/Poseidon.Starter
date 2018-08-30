@@ -142,6 +142,12 @@ namespace Poseidon.Starter
             string assemblyName = s[0];
             string typeName = s[1];
 
+            if (string.IsNullOrEmpty(assemblyName) || string.IsNullOrEmpty(typeName))
+            {
+                MessageUtil.ShowError("菜单未正确配置");
+                return;
+            }
+
             ChildFormManage.LoadMdiForm(this, assemblyName, typeName);
         }
 
