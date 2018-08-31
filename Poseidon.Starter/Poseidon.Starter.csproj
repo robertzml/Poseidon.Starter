@@ -154,8 +154,20 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\UpDownBars_32x32.png" />
+    <None Include="Resources\UpDownBars_16x16.png" />
+    <None Include="Resources\AutoSum_16x16.png" />
+    <None Include="Resources\AutoSum_32x32.png" />
+    <None Include="Resources\Math&amp;Trig_16x16.png" />
+    <None Include="Resources\Math&amp;Trig_32x32.png" />
+    <None Include="Resources\Date&amp;Time_16x16.png" />
+    <None Include="Resources\Date&amp;Time_32x32.png" />
+    <None Include="Resources\SeriesLines_16x16.png" />
+    <None Include="Resources\SeriesLines_32x32.png" />
     <Content Include="Resources\Squeeze_16x16.png" />
     <Content Include="Resources\Squeeze_32x32.png" />
+    <None Include="Resources\Statistical_16x16.png" />
+    <None Include="Resources\Statistical_32x32.png" />
     <Content Include="Resources\Stretch_16x16.png" />
     <Content Include="Resources\Stretch_32x32.png" />
     <None Include="Resources\WeightedPies_32x32.png" />

@@ -83,6 +83,46 @@ namespace Poseidon.Starter.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap AutoSum_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("AutoSum_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap AutoSum_16x161 {
+            get {
+                object obj = ResourceManager.GetObject("AutoSum_16x161", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap AutoSum_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("AutoSum_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap AutoSum_32x321 {
+            get {
+                object obj = ResourceManager.GetObject("AutoSum_32x321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap BOPermission_16x16 {
             get {
                 object obj = ResourceManager.GetObject("BOPermission_16x16", resourceCulture);
@@ -303,6 +343,26 @@ namespace Poseidon.Starter.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Date_Time_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Date_Time_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Date_Time_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Date_Time_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Design_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Design_16x16", resourceCulture);
@@ -503,6 +563,46 @@ namespace Poseidon.Starter.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Math_Trig_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Math_Trig_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Math_Trig_16x161 {
+            get {
+                object obj = ResourceManager.GetObject("Math_Trig_16x161", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Math_Trig_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Math_Trig_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Math_Trig_32x321 {
+            get {
+                object obj = ResourceManager.GetObject("Math_Trig_32x321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Role_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Role_16x16", resourceCulture);
@@ -543,6 +643,26 @@ namespace Poseidon.Starter.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap SeriesLines_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("SeriesLines_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap SeriesLines_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("SeriesLines_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap ShowAll_16x16 {
             get {
                 object obj = ResourceManager.GetObject("ShowAll_16x16", resourceCulture);
@@ -576,6 +696,26 @@ namespace Poseidon.Starter.Properties {
         internal static System.Drawing.Bitmap Squeeze_32x32 {
             get {
                 object obj = ResourceManager.GetObject("Squeeze_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Statistical_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Statistical_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Statistical_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Statistical_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -636,6 +776,26 @@ namespace Poseidon.Starter.Properties {
         internal static System.Drawing.Bitmap TopBottomRules_32x32 {
             get {
                 object obj = ResourceManager.GetObject("TopBottomRules_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap UpDownBars_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("UpDownBars_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap UpDownBars_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("UpDownBars_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
