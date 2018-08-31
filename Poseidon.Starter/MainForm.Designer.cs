@@ -40,6 +40,7 @@
             this.rpgBase = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tabMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.bbiResource = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabMdiManager)).BeginInit();
             this.SuspendLayout();
@@ -52,9 +53,10 @@
             this.barChildList,
             this.barLoginUser,
             this.bbiChangePassword,
-            this.bbiExit});
+            this.bbiExit,
+            this.bbiResource});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 17;
+            this.ribbonControl.MaxItemId = 18;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpBase});
@@ -115,6 +117,7 @@
             // 
             // rpgBase
             // 
+            this.rpgBase.ItemLinks.Add(this.bbiResource);
             this.rpgBase.ItemLinks.Add(this.barChildList);
             this.rpgBase.ItemLinks.Add(this.bbiExit);
             this.rpgBase.Name = "rpgBase";
@@ -133,6 +136,16 @@
             this.tabMdiManager.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
             this.tabMdiManager.MdiParent = this;
             this.tabMdiManager.PinPageButtonShowMode = DevExpress.XtraTab.PinPageButtonShowMode.InActiveTabPageHeader;
+            // 
+            // bbiResource
+            // 
+            this.bbiResource.Caption = "资源管理";
+            this.bbiResource.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
+            this.bbiResource.Glyph = ((System.Drawing.Image)(resources.GetObject("bbiResource.Glyph")));
+            this.bbiResource.Id = 17;
+            this.bbiResource.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbiResource.LargeGlyph")));
+            this.bbiResource.Name = "bbiResource";
+            this.bbiResource.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiResource_ItemClick);
             // 
             // MainForm
             // 
@@ -168,6 +181,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiExit;
         private DevExpress.XtraBars.Ribbon.RibbonPage rpBase;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgBase;
+        private DevExpress.XtraBars.BarButtonItem bbiResource;
     }
 }
 

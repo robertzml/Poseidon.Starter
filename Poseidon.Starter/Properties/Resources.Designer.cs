@@ -583,6 +583,26 @@ namespace Poseidon.Starter.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Stretch_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Stretch_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Stretch_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Stretch_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Top10Items_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Top10Items_16x16", resourceCulture);
@@ -636,6 +656,26 @@ namespace Poseidon.Starter.Properties {
         internal static System.Drawing.Bitmap UserGroup_32x32 {
             get {
                 object obj = ResourceManager.GetObject("UserGroup_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap WeightedPies_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("WeightedPies_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap WeightedPies_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("WeightedPies_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

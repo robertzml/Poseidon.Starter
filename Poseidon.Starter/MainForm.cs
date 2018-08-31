@@ -162,6 +162,16 @@ namespace Poseidon.Starter
         }
 
         /// <summary>
+        /// 资源管理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bbiResource_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ChildFormManage.LoadMdiForm(this, typeof(FrmResourceManage));
+        }
+
+        /// <summary>
         /// 退出系统
         /// </summary>
         /// <param name="sender"></param>

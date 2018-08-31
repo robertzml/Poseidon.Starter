@@ -42,23 +42,34 @@ namespace Poseidon.Starter
             base.InitForm();
         }
 
+        /// <summary>
+        /// 载入资源
+        /// </summary>
         private void LoadResource()
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
-            //Stream manifestResourceStream = assembly.GetManifestResourceStream("");
 
             ResourceManager rm = new ResourceManager("Poseidon.Starter.Properties.Resources", assembly);
-                        
-            var caption = rm.GetString("Caption");
+
+            var caption = rm.GetString("Caption"); //keep this line
 
             var rs = rm.GetResourceSet(Thread.CurrentThread.CurrentCulture, true, false);
+            var en = rs.GetEnumerator();
+
+            while (en.MoveNext())
+            {
+                var key = en.Key;
+                var val = en.Value;
+
+                this.lbResource.Items.Add(en.Key);
+            }
         }
         #endregion //Function
 
         #region Event
         private void btnLoadIcon_Click(object sender, EventArgs e)
         {
-          
+            LoadResource();
         }
         #endregion //Event
     }

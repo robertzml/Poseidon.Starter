@@ -156,6 +156,10 @@
   <ItemGroup>
     <Content Include="Resources\Squeeze_16x16.png" />
     <Content Include="Resources\Squeeze_32x32.png" />
+    <Content Include="Resources\Stretch_16x16.png" />
+    <Content Include="Resources\Stretch_32x32.png" />
+    <None Include="Resources\WeightedPies_32x32.png" />
+    <None Include="Resources\WeightedPies_16x16.png" />
     <None Include="Resources\SelectDataMember_32x32.png" />
     <None Include="Resources\SelectDataMember_16x16.png" />
     <None Include="Resources\ShowAll_32x32.png" />
