@@ -77,13 +77,13 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("华文行楷", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("华文行楷", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.labelControl1.Location = new System.Drawing.Point(64, 8);
+            this.labelControl1.Location = new System.Drawing.Point(38, 10);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(280, 42);
+            this.labelControl1.Size = new System.Drawing.Size(333, 39);
             this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "能源科管理系统";
+            this.labelControl1.Text = "房产处信息管理系统";
             // 
             // panelControl2
             // 

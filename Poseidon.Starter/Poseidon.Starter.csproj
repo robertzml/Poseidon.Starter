@@ -157,6 +157,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Template_32x32.png" />
+    <None Include="Resources\Template_16x16.png" />
+    <None Include="Resources\Suggestion_32x32.png" />
+    <None Include="Resources\Suggestion_16x16.png" />
     <None Include="Resources\Text_32x32.png" />
     <None Include="Resources\Text_16x16.png" />
     <None Include="Resources\Task_32x32.png" />
@@ -174,6 +178,24 @@
     <None Include="Resources\ServerMode_16x16.png" />
     <None Include="Resources\ServerMode_32x32.png" />
     <None Include="Resources\CrossDataSourceFiltering_16x16.png" />
+    <None Include="Resources\Article_16x16.png" />
+    <None Include="Resources\Article_32x32.png" />
+    <None Include="Resources\Content_16x16.png" />
+    <None Include="Resources\Content_32x32.png" />
+    <None Include="Resources\PackageProduct_16x16.png" />
+    <None Include="Resources\PackageProduct_32x32.png" />
+    <None Include="Resources\Palette_16x16.png" />
+    <None Include="Resources\Palette_32x32.png" />
+    <None Include="Resources\Product_16x16.png" />
+    <None Include="Resources\Product_32x32.png" />
+    <None Include="Resources\SortDialog_16x16.png" />
+    <None Include="Resources\SortDialog_32x32.png" />
+    <None Include="Resources\BOPerson_16x16.png" />
+    <None Include="Resources\BOPerson_32x32.png" />
+    <None Include="Resources\Database_16x16.png" />
+    <None Include="Resources\Database_32x32.png" />
+    <None Include="Resources\ManageDatasource_16x16.png" />
+    <None Include="Resources\ManageDatasource_32x32.png" />
     <Content Include="Resources\Squeeze_16x16.png" />
     <Content Include="Resources\Squeeze_32x32.png" />
     <None Include="Resources\Statistical_16x16.png" />
@@ -236,7 +258,6 @@
     <None Include="Resources\GreaterThan_32x32.png" />
     <None Include="Resources\FullStackedPyramid_16x16.png" />
     <None Include="Resources\FullStackedPyramid_32x32.png" />
-    <None Include="Resources\CrossDataSourceFiltering _16x16.png" />
     <None Include="Resources\CrossDataSourceFiltering_32x32.png" />
     <Content Include="Resources\poseidon.ico" />
     <None Include="Resources\UserGroup_32x32.png" />
