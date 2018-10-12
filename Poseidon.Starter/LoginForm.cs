@@ -105,7 +105,7 @@ namespace Poseidon.Starter
             var hash = Hasher.SHA1Encrypt(this.txtPassword.Text);
             var result = CallerFactory<IUserService>.Instance.Login(this.txtUserName.Text, hash);
 
-            if (result)
+            if (result.success)
             {
                 if (this.chkRemember.Checked)
                 {
@@ -122,7 +122,7 @@ namespace Poseidon.Starter
             }
             else
             {
-                MessageUtil.ShowWarning("用户名或密码错误");
+                MessageUtil.ShowWarning("登录失败： " + result.errorMessage);
                 this.txtPassword.Text = "";
                 return;
             }
