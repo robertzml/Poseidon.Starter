@@ -32,7 +32,7 @@ namespace Poseidon.Starter
         public MainForm()
         {
             InitializeComponent();
-            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("Office 2016 Colorful");
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle("Office 2013");
         }
         #endregion //Constructor
 
